@@ -14,11 +14,11 @@ from pathlib import Path
 # Adiciona o diretório raiz ao path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import pandas as pd
-from sklearn.linear_model import Ridge, Lasso
-from sklearn.ensemble import RandomForestRegressor
+import pandas as pd  # noqa: E402
+from sklearn.linear_model import Ridge, Lasso  # noqa: E402
+from sklearn.ensemble import RandomForestRegressor  # noqa: E402
 
-from src import DataIngestion, ModelTrainer, ModelEvaluator
+from src import DataIngestion, ModelTrainer, ModelEvaluator  # noqa: E402
 
 
 def comparar_modelos(X_train, X_test, y_train, y_test):

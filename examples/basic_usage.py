@@ -14,11 +14,11 @@ from pathlib import Path
 # Adiciona o diretório raiz ao path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import pandas as pd
+import pandas as pd  # noqa: E402
 
 # Importa a biblioteca interna instalada
 # Após instalação via pip: pip install car-price-prediction
-from src import DataIngestion, ModelTrainer, ModelEvaluator
+from src import DataIngestion, ModelTrainer, ModelEvaluator  # noqa: E402
 
 
 def main():

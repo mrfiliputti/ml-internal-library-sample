@@ -17,9 +17,9 @@ from pathlib import Path
 # Adiciona o diretório raiz ao path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import pandas as pd
+import pandas as pd  # noqa: E402
 
-from src import (
+from src import (  # noqa: E402
     DataIngestion,
     DataValidator,
     ModelTrainer,

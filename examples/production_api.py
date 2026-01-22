@@ -22,15 +22,15 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 try:
-    from flask import Flask, request, jsonify
+    from flask import Flask, request, jsonify  # noqa: E402
     FLASK_AVAILABLE = True
 except ImportError:
     FLASK_AVAILABLE = False
     print("⚠️  Flask não instalado. Execute: pip install flask")
 
-import pandas as pd
+import pandas as pd  # noqa: E402
 
-from src import DataIngestion, ModelTrainer, load_pickle
+from src import DataIngestion, ModelTrainer, load_pickle  # noqa: E402
 
 
 # Inicializa a aplicação Flask
