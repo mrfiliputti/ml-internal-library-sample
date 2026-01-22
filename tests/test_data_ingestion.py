@@ -10,7 +10,7 @@ import os
 from src.data_ingestion import DataIngestion
 
 # Adiciona o diretório src ao path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 
 class TestDataIngestion(unittest.TestCase):
@@ -35,15 +35,22 @@ class TestDataIngestion(unittest.TestCase):
         self.assertEqual(len(df), n_samples)
 
         # Verifica se todas as colunas esperadas estão presentes
-        expected_columns = ['year', 'mileage', 'engine_size', 'horsepower', 'num_doors', 'price']
+        expected_columns = [
+            "year",
+            "mileage",
+            "engine_size",
+            "horsepower",
+            "num_doors",
+            "price",
+        ]
         self.assertListEqual(df.columns.tolist(), expected_columns)
 
         # Verifica se não há valores nulos
         self.assertEqual(df.isnull().sum().sum(), 0)
 
         # Verifica ranges dos valores
-        self.assertTrue(df['year'].between(2010, 2023).all())
-        self.assertTrue(df['price'].min() >= 1000)
+        self.assertTrue(df["year"].between(2010, 2023).all())
+        self.assertTrue(df["price"].min() >= 1000)
 
     def test_split_data(self):
         """Testa divisão dos dados."""
@@ -70,5 +77,5 @@ class TestDataIngestion(unittest.TestCase):
             self.ingestion.split_data()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

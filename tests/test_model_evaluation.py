@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 from src.model_evaluation import ModelEvaluator
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 
 class TestModelEvaluator(unittest.TestCase):
@@ -37,15 +37,15 @@ class TestModelEvaluator(unittest.TestCase):
         metrics = self.evaluator.calculate_metrics()
 
         # Verifica se todas as métricas foram calculadas
-        self.assertIn('rmse', metrics)
-        self.assertIn('mae', metrics)
-        self.assertIn('r2', metrics)
-        self.assertIn('mape', metrics)
+        self.assertIn("rmse", metrics)
+        self.assertIn("mae", metrics)
+        self.assertIn("r2", metrics)
+        self.assertIn("mape", metrics)
 
         # Verifica se valores são razoáveis
-        self.assertGreater(metrics['r2'], 0.9)  # Deve ter R² alto
-        self.assertGreater(metrics['rmse'], 0)
-        self.assertGreater(metrics['mae'], 0)
+        self.assertGreater(metrics["r2"], 0.9)  # Deve ter R² alto
+        self.assertGreater(metrics["rmse"], 0)
+        self.assertGreater(metrics["mae"], 0)
 
     def test_get_residuals(self):
         """Testa cálculo de resíduos."""
@@ -63,12 +63,11 @@ class TestModelEvaluator(unittest.TestCase):
         intervals = self.evaluator.calculate_prediction_intervals(confidence=0.95)
 
         # Verifica se retornou limites superior e inferior
-        self.assertIn('lower_bound', intervals)
-        self.assertIn('upper_bound', intervals)
+        self.assertIn("lower_bound", intervals)
+        self.assertIn("upper_bound", intervals)
 
         # Verifica se limite inferior < superior
-        self.assertTrue(
-            np.all(intervals['lower_bound'] < intervals['upper_bound']))
+        self.assertTrue(np.all(intervals["lower_bound"] < intervals["upper_bound"]))
 
     def test_get_report(self):
         """Testa geração de relatório."""
@@ -78,10 +77,10 @@ class TestModelEvaluator(unittest.TestCase):
         self.assertIsInstance(report, str)
 
         # Verifica se contém informações esperadas
-        self.assertIn('RELATÓRIO', report)
-        self.assertIn('RMSE', report)
-        self.assertIn('MAE', report)
-        self.assertIn('R²', report)
+        self.assertIn("RELATÓRIO", report)
+        self.assertIn("RMSE", report)
+        self.assertIn("MAE", report)
+        self.assertIn("R²", report)
 
     def test_compare_predictions(self):
         """Testa comparação de predições."""
@@ -91,7 +90,7 @@ class TestModelEvaluator(unittest.TestCase):
         self.assertIsInstance(comparison, pd.DataFrame)
 
         # Verifica colunas
-        expected_cols = ['Real', 'Predito', 'Erro', 'Erro_%']
+        expected_cols = ["Real", "Predito", "Erro", "Erro_%"]
         self.assertListEqual(comparison.columns.tolist(), expected_cols)
 
         # Verifica número de linhas
@@ -106,12 +105,12 @@ class TestModelEvaluator(unittest.TestCase):
         metrics = evaluator.calculate_metrics()
 
         # R² deve ser 1.0
-        self.assertAlmostEqual(metrics['r2'], 1.0, places=5)
+        self.assertAlmostEqual(metrics["r2"], 1.0, places=5)
 
         # RMSE e MAE devem ser 0
-        self.assertAlmostEqual(metrics['rmse'], 0.0, places=5)
-        self.assertAlmostEqual(metrics['mae'], 0.0, places=5)
+        self.assertAlmostEqual(metrics["rmse"], 0.0, places=5)
+        self.assertAlmostEqual(metrics["mae"], 0.0, places=5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

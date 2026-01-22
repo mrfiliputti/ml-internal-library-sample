@@ -12,7 +12,7 @@ import numpy as np
 from sklearn.linear_model import Ridge
 from src.model_trainer import ModelTrainer
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 
 class TestModelTrainer(unittest.TestCase):
@@ -22,19 +22,18 @@ class TestModelTrainer(unittest.TestCase):
         """Configuração executada antes de cada teste."""
         # Cria dados de treino sintéticos
         np.random.seed(42)
-        self.X_train = pd.DataFrame({
-            'feature1': np.random.randn(100),
-            'feature2': np.random.randn(100)
-        })
+        self.X_train = pd.DataFrame(
+            {"feature1": np.random.randn(100), "feature2": np.random.randn(100)}
+        )
         self.y_train = pd.Series(
-            2 * self.X_train['feature1'] + 3 * self.X_train['feature2']
+            2 * self.X_train["feature1"]
+            + 3 * self.X_train["feature2"]
             + np.random.randn(100) * 0.1
         )
 
-        self.X_test = pd.DataFrame({
-            'feature1': np.random.randn(20),
-            'feature2': np.random.randn(20)
-        })
+        self.X_test = pd.DataFrame(
+            {"feature1": np.random.randn(20), "feature2": np.random.randn(20)}
+        )
 
         self.trainer = ModelTrainer()
 
@@ -49,7 +48,7 @@ class TestModelTrainer(unittest.TestCase):
         custom_model = Ridge(alpha=1.0)
         trainer = ModelTrainer(model=custom_model)
 
-        self.assertEqual(type(trainer.model).__name__, 'Ridge')
+        self.assertEqual(type(trainer.model).__name__, "Ridge")
 
     def test_fit(self):
         """Testa treinamento do modelo."""
@@ -95,5 +94,5 @@ class TestModelTrainer(unittest.TestCase):
         self.assertTrue(trainer.is_fitted)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

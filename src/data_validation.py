@@ -10,7 +10,6 @@ import numpy as np
 from typing import Dict, List, Optional
 from .utils import setup_logger
 
-
 logger = setup_logger(__name__)
 
 
@@ -60,7 +59,7 @@ class DataValidator:
         missing = self.data.isnull().sum()
         missing_dict = missing[missing > 0].to_dict()
 
-        self.validation_results['missing_values'] = missing_dict
+        self.validation_results["missing_values"] = missing_dict
 
         if missing_dict:
             logger.warning(f"Valores ausentes encontrados: {missing_dict}")
@@ -79,7 +78,7 @@ class DataValidator:
             Número de linhas duplicadas.
         """
         n_duplicates = self.data.duplicated().sum()
-        self.validation_results['duplicates'] = n_duplicates
+        self.validation_results["duplicates"] = n_duplicates
 
         if n_duplicates > 0:
             logger.warning(f"Encontradas {n_duplicates} linhas duplicadas")
@@ -89,9 +88,7 @@ class DataValidator:
         return n_duplicates
 
     def check_outliers(
-        self,
-        columns: Optional[List[str]] = None,
-        threshold: float = 3.0
+        self, columns: Optional[List[str]] = None, threshold: float = 3.0
     ) -> Dict[str, int]:
         """
         Detecta outliers usando método z-score.
@@ -121,7 +118,7 @@ class DataValidator:
             if n_outliers > 0:
                 outliers_dict[col] = n_outliers
 
-        self.validation_results['outliers'] = outliers_dict
+        self.validation_results["outliers"] = outliers_dict
 
         if outliers_dict:
             logger.warning(f"Outliers detectados: {outliers_dict}")
@@ -154,7 +151,7 @@ class DataValidator:
                 type_check[col] = False
                 logger.warning(f"Coluna {col} não encontrada no dataset")
 
-        self.validation_results['type_check'] = type_check
+        self.validation_results["type_check"] = type_check
 
         incorrect_types = {k: v for k, v in type_check.items() if not v}
         if incorrect_types:
@@ -164,10 +161,7 @@ class DataValidator:
 
         return type_check
 
-    def validate_all(
-        self,
-        expected_types: Optional[Dict[str, str]] = None
-    ) -> Dict:
+    def validate_all(self, expected_types: Optional[Dict[str, str]] = None) -> Dict:
         """
         Executa todas as validações.
 
@@ -207,16 +201,16 @@ class DataValidator:
         summary.append("RESUMO DA VALIDAÇÃO DE DADOS")
         summary.append("=" * 50)
 
-        if 'missing_values' in self.validation_results:
-            missing = self.validation_results['missing_values']
+        if "missing_values" in self.validation_results:
+            missing = self.validation_results["missing_values"]
             summary.append(f"\nValores Ausentes: {len(missing)} colunas afetadas")
 
-        if 'duplicates' in self.validation_results:
-            dups = self.validation_results['duplicates']
+        if "duplicates" in self.validation_results:
+            dups = self.validation_results["duplicates"]
             summary.append(f"Linhas Duplicadas: {dups}")
 
-        if 'outliers' in self.validation_results:
-            outliers = self.validation_results['outliers']
+        if "outliers" in self.validation_results:
+            outliers = self.validation_results["outliers"]
             summary.append(f"Outliers: {len(outliers)} colunas afetadas")
 
         summary.append("=" * 50)

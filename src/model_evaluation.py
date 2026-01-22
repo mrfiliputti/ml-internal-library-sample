@@ -8,13 +8,8 @@ Fornece relatórios detalhados e visualizações (Aula 3).
 import pandas as pd
 import numpy as np
 from typing import Dict
-from sklearn.metrics import (
-    mean_squared_error,
-    mean_absolute_error,
-    r2_score
-)
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from .utils import setup_logger
-
 
 logger = setup_logger(__name__)
 
@@ -41,11 +36,7 @@ class ModelEvaluator:
     >>> print(evaluator.get_report())
     """
 
-    def __init__(
-        self,
-        y_true: np.ndarray,
-        y_pred: np.ndarray
-    ):
+    def __init__(self, y_true: np.ndarray, y_pred: np.ndarray):
         """
         Inicializa o avaliador de modelos.
 
@@ -89,16 +80,9 @@ class ModelEvaluator:
         r2 = r2_score(self.y_true, self.y_pred)
 
         # MAPE (Mean Absolute Percentage Error)
-        mape = (np.mean(
-            np.abs((self.y_true - self.y_pred) / self.y_true))
-            * 100)
+        mape = np.mean(np.abs((self.y_true - self.y_pred) / self.y_true)) * 100
 
-        self.metrics = {
-            'rmse': rmse,
-            'mae': mae,
-            'r2': r2,
-            'mape': mape
-        }
+        self.metrics = {"rmse": rmse, "mae": mae, "r2": r2, "mape": mape}
 
         logger.info("Métricas calculadas com sucesso")
         return self.metrics
@@ -121,8 +105,7 @@ class ModelEvaluator:
         return residuals
 
     def calculate_prediction_intervals(
-        self,
-        confidence: float = 0.95
+        self, confidence: float = 0.95
     ) -> Dict[str, np.ndarray]:
         """
         Calcula intervalos de confiança para as predições.
@@ -142,13 +125,14 @@ class ModelEvaluator:
 
         # Z-score para intervalo de confiança
         from scipy import stats
+
         z_score = stats.norm.ppf((1 + confidence) / 2)
 
         margin = z_score * std_residuals
 
         return {
-            'lower_bound': self.y_pred - margin,
-            'upper_bound': self.y_pred + margin
+            "lower_bound": self.y_pred - margin,
+            "upper_bound": self.y_pred + margin,
         }
 
     def get_report(self) -> str:
@@ -213,14 +197,17 @@ class ModelEvaluator:
         """
         n_samples = min(n_samples, len(self.y_true))
 
-        comparison_df = pd.DataFrame({
-            'Real': self.y_true[:n_samples],
-            'Predito': self.y_pred[:n_samples],
-            'Erro': self.y_true[:n_samples] - self.y_pred[:n_samples],
-            'Erro_%': np.abs(
-                (self.y_true[:n_samples] - self.y_pred[:n_samples])
-                / self.y_true[:n_samples] * 100
-            )
-        })
+        comparison_df = pd.DataFrame(
+            {
+                "Real": self.y_true[:n_samples],
+                "Predito": self.y_pred[:n_samples],
+                "Erro": self.y_true[:n_samples] - self.y_pred[:n_samples],
+                "Erro_%": np.abs(
+                    (self.y_true[:n_samples] - self.y_pred[:n_samples])
+                    / self.y_true[:n_samples]
+                    * 100
+                ),
+            }
+        )
 
         return comparison_df

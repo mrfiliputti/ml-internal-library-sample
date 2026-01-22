@@ -38,8 +38,8 @@ def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
     if not logger.handlers:
         handler = logging.StreamHandler()
         formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S'
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
         )
         handler.setFormatter(formatter)
         logger.addHandler(handler)
@@ -71,7 +71,7 @@ def save_pickle(obj: Any, filepath: str) -> None:
     path = Path(filepath)
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(filepath, 'wb') as f:
+    with open(filepath, "wb") as f:
         pickle.dump(obj, f)
 
 
@@ -100,5 +100,5 @@ def load_pickle(filepath: str) -> Any:
     --------
     >>> model = load_pickle("models/model.pkl")
     """
-    with open(filepath, 'rb') as f:
+    with open(filepath, "rb") as f:
         return pickle.load(f)

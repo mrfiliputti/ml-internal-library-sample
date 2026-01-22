@@ -11,7 +11,6 @@ from typing import Tuple, Optional
 from sklearn.model_selection import train_test_split
 from .utils import setup_logger
 
-
 logger = setup_logger(__name__)
 
 
@@ -80,9 +79,7 @@ class DataIngestion:
             raise
 
     def generate_synthetic_data(
-        self,
-        n_samples: int = 1000,
-        random_state: int = 42
+        self, n_samples: int = 1000, random_state: int = 42
     ) -> pd.DataFrame:
         """
         Gera dados sintéticos para demonstração.
@@ -120,14 +117,16 @@ class DataIngestion:
         )
         price = np.maximum(price, 1000)  # Preço mínimo
 
-        self.data = pd.DataFrame({
-            'year': year,
-            'mileage': mileage,
-            'engine_size': engine_size,
-            'horsepower': horsepower,
-            'num_doors': num_doors,
-            'price': price
-        })
+        self.data = pd.DataFrame(
+            {
+                "year": year,
+                "mileage": mileage,
+                "engine_size": engine_size,
+                "horsepower": horsepower,
+                "num_doors": num_doors,
+                "price": price,
+            }
+        )
 
         logger.info(f"Dados sintéticos gerados: {n_samples} amostras")
         return self.data
@@ -136,7 +135,7 @@ class DataIngestion:
         self,
         test_size: float = 0.2,
         random_state: int = 42,
-        target_column: str = 'price'
+        target_column: str = "price",
     ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
         """
         Divide os dados em conjuntos de treino e teste.
@@ -173,13 +172,9 @@ class DataIngestion:
         y = self.data[target_column]
 
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y,
-            test_size=test_size,
-            random_state=random_state
+            X, y, test_size=test_size, random_state=random_state
         )
 
-        logger.info(
-            f"Dados divididos: treino={len(X_train)}, teste={len(X_test)}"
-        )
+        logger.info(f"Dados divididos: treino={len(X_train)}, teste={len(X_test)}")
 
         return X_train, X_test, y_train, y_test

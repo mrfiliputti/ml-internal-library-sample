@@ -12,7 +12,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 from .utils import setup_logger, save_pickle
 
-
 logger = setup_logger(__name__)
 
 
@@ -39,11 +38,7 @@ class ModelTrainer:
     >>> predictions = trainer.predict(X_test)
     """
 
-    def __init__(
-        self,
-        model: Optional[Any] = None,
-        use_scaling: bool = True
-    ):
+    def __init__(self, model: Optional[Any] = None, use_scaling: bool = True):
         """
         Inicializa o treinador de modelos.
 
@@ -63,11 +58,8 @@ class ModelTrainer:
         )
 
     def fit(
-        self,
-        X_train: pd.DataFrame,
-        y_train: pd.Series,
-        **kwargs
-    ) -> 'ModelTrainer':
+        self, X_train: pd.DataFrame, y_train: pd.Series, **kwargs
+    ) -> "ModelTrainer":
         """
         Treina o modelo com os dados fornecidos.
 
@@ -129,9 +121,7 @@ class ModelTrainer:
         >>> predictions = trainer.predict(X_test)
         """
         if not self.is_fitted:
-            raise ValueError(
-                "Modelo não treinado. Execute fit() antes de predict()."
-            )
+            raise ValueError("Modelo não treinado. Execute fit() antes de predict().")
 
         # Aplica scaling se configurado
         if self.use_scaling and self.scaler is not None:
@@ -157,11 +147,8 @@ class ModelTrainer:
             logger.warning("Modelo não treinado")
             return None
 
-        if hasattr(self.model, 'coef_'):
-            return pd.Series(
-                self.model.coef_,
-                name='importance'
-            )
+        if hasattr(self.model, "coef_"):
+            return pd.Series(self.model.coef_, name="importance")
         else:
             logger.warning("Modelo não possui atributo 'coef_'")
             return None
@@ -200,7 +187,7 @@ class ModelTrainer:
         dict
             Parâmetros do modelo.
         """
-        if hasattr(self.model, 'get_params'):
+        if hasattr(self.model, "get_params"):
             return self.model.get_params()
         else:
             return {}
