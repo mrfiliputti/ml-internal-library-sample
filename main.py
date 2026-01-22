@@ -161,7 +161,7 @@ def main():
 
     except Exception as e:
         logger.error(f"\nERRO durante a execução: {str(e)}", exc_info=True)
-        sys.exit(1)
+        raise
 
 
 if __name__ == "__main__":
