@@ -11,7 +11,6 @@ Uso:
     python examples/advanced_usage.py
 """
 
-import sys
 from pathlib import Path
 import pandas as pd
 
@@ -87,7 +86,7 @@ def gerar_relatorio_completo(evaluator: ModelEvaluator) -> None:
 
 def salvar_modelo_producao(trainer: ModelTrainer, output_dir: str = "models") -> None:
     """Salva modelo para uso em produção."""
-    print(f"\n💾 Salvando modelo em produção...")
+    print("\n💾 Salvando modelo em produção...")
     
     Path(output_dir).mkdir(exist_ok=True)
     
@@ -138,7 +137,7 @@ def main():
     data = ingestion.generate_synthetic_data(n_samples=1000, random_state=42)
     
     # Valida qualidade
-    validation_results = validar_qualidade_dados(data)
+    validar_qualidade_dados(data)
     
     # ========================================
     # 2. PREPARAÇÃO DOS DADOS

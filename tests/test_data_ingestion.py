@@ -5,11 +5,11 @@ Demonstra práticas de testes automatizados (Aula 6).
 """
 
 import unittest
+import sys
+import os
 import pandas as pd
 import numpy as np
 from pathlib import Path
-import sys
-import os
 
 # Adiciona o diretório src ao path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))

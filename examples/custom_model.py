@@ -8,7 +8,6 @@ Uso:
     python examples/custom_model.py
 """
 
-import sys
 import pandas as pd
 from sklearn.linear_model import Ridge, Lasso
 from sklearn.ensemble import RandomForestRegressor
@@ -91,7 +90,7 @@ def exemplo_sem_normalizacao(X_train, X_test, y_train, y_test):
     evaluator = ModelEvaluator(y_test.values, predictions)
     metrics = evaluator.calculate_metrics()
     
-    print(f"\n📊 Resultados sem normalização:")
+    print("\n📊 Resultados sem normalização:")
     print(f"   R² Score: {metrics['r2']:.4f}")
     print(f"   RMSE: ${metrics['rmse']:,.2f}")
     
@@ -129,8 +128,8 @@ def exemplo_pipeline_completo():
     
     print(f"\n✅ Modelo recomendado: {melhor_modelo}")
     print(f"   • R² Score: {melhor_r2:.4f}")
-    print(f"   • Use normalização: Sim (melhora performance)")
-    print(f"   • Adequado para: Produção")
+    print("   • Use normalização: Sim (melhora performance)")
+    print("   • Adequado para: Produção")
 
 
 def exemplo_modelo_customizado_avancado():
@@ -166,7 +165,7 @@ def exemplo_modelo_customizado_avancado():
     evaluator = ModelEvaluator(y_test.values, predictions)
     metrics = evaluator.calculate_metrics()
     
-    print(f"\n📊 Resultados:")
+    print("\n📊 Resultados:")
     print(f"   R² Score: {metrics['r2']:.4f}")
     print(f"   RMSE: ${metrics['rmse']:,.2f}")
     print(f"   MAE: ${metrics['mae']:,.2f}")

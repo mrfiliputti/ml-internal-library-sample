@@ -5,10 +5,10 @@ Demonstra testes para avaliação de modelos (Aula 6).
 """
 
 import unittest
-import numpy as np
-import pandas as pd
 import sys
 import os
+import numpy as np
+import pandas as pd
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
@@ -69,8 +69,7 @@ class TestModelEvaluator(unittest.TestCase):
 
         # Verifica se limite inferior < superior
         self.assertTrue(
-            np.all(intervals['lower_bound'] < intervals['upper_bound'])
-        )
+            np.all(intervals['lower_bound'] < intervals['upper_bound']))
 
     def test_get_report(self):
         """Testa geração de relatório."""

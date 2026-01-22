@@ -5,14 +5,7 @@ Este script demonstra o uso completo da biblioteca interna de ML,
 seguindo as melhores práticas apresentadas nas aulas.
 """
 
-import sys
-import logging
-from pathlib import Path
 
-# Importa os módulos da biblioteca
-from src import (
-    DataIngestion,
-    DataValidator,
     ModelTrainer,
     ModelEvaluator,
     setup_logger
@@ -73,7 +66,7 @@ def main():
         }
 
         # Executa todas as validações
-        validation_results = validator.validate_all(expected_types=expected_types)
+        validator.validate_all(expected_types=expected_types)
 
         # Exibe resumo
         print("\n" + validator.get_summary())

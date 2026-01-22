@@ -5,11 +5,11 @@ Demonstra testes para treinamento de modelos (Aula 6).
 """
 
 import unittest
+import sys
+import os
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import Ridge
-import sys
-import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
@@ -28,8 +28,8 @@ class TestModelTrainer(unittest.TestCase):
             'feature2': np.random.randn(100)
         })
         self.y_train = pd.Series(
-            2 * self.X_train['feature1'] + 3 * self.X_train['feature2'] +
-            np.random.randn(100) * 0.1
+            2 * self.X_train['feature1'] + 3 * self.X_train['feature2']
+            + np.random.randn(100) * 0.1
         )
 
         self.X_test = pd.DataFrame({

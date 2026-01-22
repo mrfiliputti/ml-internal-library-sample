@@ -5,10 +5,10 @@ Demonstra testes para validação de qualidade de dados (Aula 6).
 """
 
 import unittest
-import pandas as pd
-import numpy as np
 import sys
 import os
+import pandas as pd
+import numpy as pd
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 

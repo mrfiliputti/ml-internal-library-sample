@@ -8,7 +8,6 @@ Uso:
     python examples/basic_usage.py
 """
 
-import sys
 import pandas as pd
 
 # Importa a biblioteca interna instalada
@@ -72,11 +71,11 @@ def main():
     preco_predito = trainer.predict(novo_carro)[0]
     
     print("\n   Características do Carro:")
-    print(f"   • Ano: 2022")
-    print(f"   • Quilometragem: 15,000 km")
-    print(f"   • Motor: 2.0L")
-    print(f"   • Potência: 150 HP")
-    print(f"   • Portas: 4")
+    print("   • Ano: 2022")
+    print("   • Quilometragem: 15,000 km")
+    print("   • Motor: 2.0L")
+    print("   • Potência: 150 HP")
+    print("   • Portas: 4")
     print(f"\n   💰 Preço Predito: ${preco_predito:,.2f}")
     
     print("\n" + "=" * 70)

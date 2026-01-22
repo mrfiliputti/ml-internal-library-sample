@@ -22,7 +22,6 @@ except ImportError:
     FLASK_AVAILABLE = False
     print("⚠️  Flask não instalado. Execute: pip install flask")
 
-import sys
 import pandas as pd
 from pathlib import Path
 

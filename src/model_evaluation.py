@@ -89,9 +89,9 @@ class ModelEvaluator:
         r2 = r2_score(self.y_true, self.y_pred)
 
         # MAPE (Mean Absolute Percentage Error)
-        mape = np.mean(
-            np.abs((self.y_true - self.y_pred) / self.y_true)
-        ) * 100
+        mape = (np.mean(
+            np.abs((self.y_true - self.y_pred) / self.y_true))
+            * 100)
 
         self.metrics = {
             'rmse': rmse,
@@ -172,7 +172,7 @@ class ModelEvaluator:
         report.append("RELATÓRIO DE AVALIAÇÃO DO MODELO")
         report.append("=" * 60)
         report.append(f"\nNúmero de amostras: {len(self.y_true)}")
-        report.append(f"\nMÉTRICAS DE PERFORMANCE:")
+        report.append("\nMÉTRICAS DE PERFORMANCE:")
         report.append("-" * 60)
         report.append(f"  RMSE (Root Mean Squared Error): {self.metrics['rmse']:.2f}")
         report.append(f"  MAE (Mean Absolute Error):      {self.metrics['mae']:.2f}")
@@ -182,7 +182,7 @@ class ModelEvaluator:
 
         # Estatísticas dos resíduos
         residuals = self.get_residuals()
-        report.append(f"\nESTATÍSTICAS DOS RESÍDUOS:")
+        report.append("\nESTATÍSTICAS DOS RESÍDUOS:")
         report.append("-" * 60)
         report.append(f"  Média:          {np.mean(residuals):.2f}")
         report.append(f"  Desvio Padrão:  {np.std(residuals):.2f}")
