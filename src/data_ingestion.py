@@ -169,8 +169,6 @@ class DataIngestion:
         if self.data is None:
             raise ValueError("Dados não carregados. Execute load_data() primeiro.")
 
-        from sklearn.model_selection import train_test_split
-
         X = self.data.drop(columns=[target_column])
         y = self.data[target_column]
 
