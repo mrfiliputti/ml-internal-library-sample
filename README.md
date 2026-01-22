@@ -46,12 +46,12 @@ print(f"Preço: ${preco:,.2f}")
 
 Este projeto foi desenvolvido seguindo as melhores práticas ensinadas nas aulas de desenvolvimento de bibliotecas internas de ML, incluindo:
 
-- ✅ **Modularidade** (Aula 2): Código organizado em funções, classes e pacotes reutilizáveis
-- ✅ **Documentação** (Aula 3): Docstrings detalhadas seguindo padrão Google/NumPy
-- ✅ **Versionamento** (Aula 4): Semantic Versioning e empacotamento com setuptools
-- ✅ **PEP8** (Aula 5): Código seguindo convenções de estilo Python
-- ✅ **Testes Automatizados** (Aula 6): Suite completa de testes unitários
-- ✅ **Design de API** (Aula 7): Interface consistente inspirada em scikit-learn
+- **Modularidade** (Aula 2): Código organizado em funções, classes e pacotes reutilizáveis
+- **Documentação** (Aula 3): Docstrings detalhadas seguindo padrão Google/NumPy
+- **Versionamento** (Aula 4): Semantic Versioning e empacotamento com setuptools
+- **PEP8** (Aula 5): Código seguindo convenções de estilo Python
+- **Testes Automatizados** (Aula 6): Suite completa de testes unitários
+- **Design de API** (Aula 7): Interface consistente inspirada em scikit-learn
 
 ## Estrutura do Projeto
 
@@ -323,10 +323,10 @@ A biblioteca calcula automaticamente as seguintes métricas:
 
 O projeto inclui configuração de CI/CD com GitHub Actions que:
 
-- ✅ Executa linting (flake8)
-- ✅ Roda todos os testes automaticamente
-- ✅ Gera relatório de cobertura
-- ✅ Valida em múltiplas versões do Python (3.8, 3.9, 3.10)
+- Executa linting (flake8)
+- Roda todos os testes automaticamente
+- Gera relatório de cobertura
+- Valida em múltiplas versões do Python (3.8, 3.9, 3.10)
 
 ## Documentação
 
@@ -433,19 +433,19 @@ pip install car_price_prediction-1.0.0-py3-none-any.whl
 
 ---
 
-## 🔄 CI/CD e Qualidade
+## CI/CD e Qualidade
 
 ### Pipeline Automatizado
 
 O projeto inclui CI/CD configurado (`.github/workflows/ci.yml`) que:
 
-- ✅ Executa em Python 3.8, 3.9, 3.10, 3.11
-- ✅ Valida estilo com **flake8** (PEP8)
-- ✅ Verifica formatação com **black**
-- ✅ Roda **todos os testes** automaticamente
-- ✅ Gera relatório de **cobertura**
-- ✅ Constrói e valida **pacotes**
-- ✅ Verifica **vulnerabilidades de segurança**
+- Executa em Python 3.8, 3.9, 3.10, 3.11
+- Valida estilo com **flake8** (PEP8)
+- Verifica formatação com **black**
+- Roda **todos os testes** automaticamente
+- Gera relatório de **cobertura**
+- Constrói e valida **pacotes**
+- Verifica **vulnerabilidades de segurança**
 
 ### Executar Localmente
 
@@ -466,7 +466,7 @@ pytest tests/ --cov=src --cov-report=html
 
 ---
 
-## 📖 Documentação da API
+## Documentação da API
 
 ### Classes Principais
 
