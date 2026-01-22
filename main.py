@@ -5,7 +5,13 @@ Este script demonstra o uso completo da biblioteca interna de ML,
 seguindo as melhores práticas apresentadas nas aulas.
 """
 
+import logging
+from pathlib import Path
 
+# Importa os módulos da biblioteca
+from src import (
+    DataIngestion,
+    DataValidator,
     ModelTrainer,
     ModelEvaluator,
     setup_logger
