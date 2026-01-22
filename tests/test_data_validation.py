@@ -8,7 +8,6 @@ import unittest
 import sys
 import os
 import pandas as pd
-import numpy as np
 from src.data_validation import DataValidator
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))

@@ -7,8 +7,8 @@ Implementa padrões de design de API consistentes (Aula 7).
 
 import pandas as pd
 import numpy as np
-from pathlib import Path
-from typing import Optional, Tuple
+from typing import Tuple, Optional
+from sklearn.model_selection import train_test_split
 from .utils import setup_logger
 
 
