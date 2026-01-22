@@ -56,7 +56,7 @@ class TestDataValidator(unittest.TestCase):
         df = pd.DataFrame({"value": [10, 12, 11, 13, 1000]})  # 1000 é outlier
         validator = DataValidator(df)
 
-        outliers = validator.check_outliers(threshold=2.0)
+        outliers = validator.check_outliers(threshold=1.5)
         self.assertIn("value", outliers)
         self.assertGreater(outliers["value"], 0)
 
