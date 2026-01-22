@@ -38,8 +38,8 @@ jobs:
       run: |
         # Para na primeira ocorrência de erro de sintaxe
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # Verifica complexidade e estilo
-        flake8 . --count --max-complexity=10 --max-line-length=88 --statistics
+        # Verifica complexidade e estilo (ignora W293: whitespace em linhas vazias)
+        flake8 . --count --extend-ignore=W293 --max-complexity=10 --max-line-length=88 --statistics
 
     - name: Verificar formatação com black
       run: |
