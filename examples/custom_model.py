@@ -8,6 +8,12 @@ Uso:
     python examples/custom_model.py
 """
 
+import sys
+from pathlib import Path
+
+# Adiciona o diretório raiz ao path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import pandas as pd
 from sklearn.linear_model import Ridge, Lasso
 from sklearn.ensemble import RandomForestRegressor

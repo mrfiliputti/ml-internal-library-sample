@@ -15,6 +15,12 @@ Uso:
          -d '{"year": 2022, "mileage": 15000, "engine_size": 2.0, "horsepower": 150, "num_doors": 4}'
 """
 
+import sys
+from pathlib import Path
+
+# Adiciona o diretório raiz ao path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 try:
     from flask import Flask, request, jsonify
     FLASK_AVAILABLE = True
@@ -23,7 +29,6 @@ except ImportError:
     print("⚠️  Flask não instalado. Execute: pip install flask")
 
 import pandas as pd
-from pathlib import Path
 
 from src import DataIngestion, ModelTrainer, load_pickle
 
