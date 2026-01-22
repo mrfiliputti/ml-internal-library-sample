@@ -7,7 +7,7 @@ Fornece relatórios detalhados e visualizações (Aula 3).
 
 import pandas as pd
 import numpy as np
-from typing import Dict, Optional
+from typing import Dict
 from sklearn.metrics import (
     mean_squared_error,
     mean_absolute_error,
@@ -218,8 +218,8 @@ class ModelEvaluator:
             'Predito': self.y_pred[:n_samples],
             'Erro': self.y_true[:n_samples] - self.y_pred[:n_samples],
             'Erro_%': np.abs(
-                (self.y_true[:n_samples] - self.y_pred[:n_samples]) /
-                self.y_true[:n_samples] * 100
+                (self.y_true[:n_samples] - self.y_pred[:n_samples])
+                / self.y_true[:n_samples] * 100
             )
         })
 

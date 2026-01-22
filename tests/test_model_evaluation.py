@@ -9,10 +9,9 @@ import sys
 import os
 import numpy as np
 import pandas as pd
+from src.model_evaluation import ModelEvaluator
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
-from src.model_evaluation import ModelEvaluator
 
 
 class TestModelEvaluator(unittest.TestCase):

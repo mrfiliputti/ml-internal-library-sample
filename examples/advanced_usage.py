@@ -19,7 +19,6 @@ from src import (
     DataValidator,
     ModelTrainer,
     ModelEvaluator,
-    save_pickle,
     load_pickle
 )
 
@@ -176,7 +175,7 @@ def main():
     evaluator = ModelEvaluator(y_test.values, predictions)
     
     # Calcula métricas
-    metrics = evaluator.calculate_metrics()
+    evaluator.calculate_metrics()
     
     # Gera relatório completo
     gerar_relatorio_completo(evaluator)

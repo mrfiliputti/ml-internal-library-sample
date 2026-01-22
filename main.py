@@ -142,7 +142,7 @@ def main():
         print("\n" + comparison.to_string())
 
         # Calcula intervalos de confiança
-        intervals = evaluator.calculate_prediction_intervals(confidence=0.95)
+        evaluator.calculate_prediction_intervals(confidence=0.95)
         logger.info("\nIntervalos de Confiança (95%) calculados")
 
         # ============================================================

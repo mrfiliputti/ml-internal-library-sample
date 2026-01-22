@@ -110,13 +110,13 @@ class DataIngestion:
 
         # Preço baseado em correlações realistas
         price = (
-            5000 +
-            (year - 2010) * 2000 +
-            (-mileage / 1000 * 50) +
-            engine_size * 3000 +
-            horsepower * 50 +
-            num_doors * 500 +
-            np.random.normal(0, 2000, n_samples)
+            5000
+            + (year - 2010) * 2000
+            + (-mileage / 1000 * 50)
+            + engine_size * 3000
+            + horsepower * 50
+            + num_doors * 500
+            + np.random.normal(0, 2000, n_samples)
         )
         price = np.maximum(price, 1000)  # Preço mínimo
 

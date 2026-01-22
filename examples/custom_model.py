@@ -11,7 +11,6 @@ Uso:
 import pandas as pd
 from sklearn.linear_model import Ridge, Lasso
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.svm import SVR
 
 from src import DataIngestion, ModelTrainer, ModelEvaluator
 
@@ -106,7 +105,7 @@ def exemplo_pipeline_completo():
     # 1. Dados
     print("\n1️⃣ Gerando dados...")
     ingestion = DataIngestion("data/cars.csv")
-    data = ingestion.generate_synthetic_data(n_samples=800, random_state=42)
+    ingestion.generate_synthetic_data(n_samples=800, random_state=42)
     X_train, X_test, y_train, y_test = ingestion.split_data(test_size=0.2)
     print(f"   ✓ {len(X_train)} amostras de treino")
     
@@ -116,7 +115,7 @@ def exemplo_pipeline_completo():
     
     # 3. Testa sem normalização
     print("\n3️⃣ Testando sem normalização...")
-    metrics_sem_norm = exemplo_sem_normalizacao(X_train, X_test, y_train, y_test)
+    exemplo_sem_normalizacao(X_train, X_test, y_train, y_test)
     
     # 4. Recomendação final
     print("\n" + "=" * 70)
@@ -154,7 +153,7 @@ def exemplo_modelo_customizado_avancado():
     
     # Dados
     ingestion = DataIngestion("data/cars.csv")
-    data = ingestion.generate_synthetic_data(n_samples=500, random_state=42)
+    ingestion.generate_synthetic_data(n_samples=500, random_state=42)
     X_train, X_test, y_train, y_test = ingestion.split_data(test_size=0.2)
     
     # Treina usando a biblioteca (sem scaling pois o pipeline já tem)

@@ -10,10 +10,9 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import Ridge
+from src.model_trainer import ModelTrainer
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
-from src.model_trainer import ModelTrainer
 
 
 class TestModelTrainer(unittest.TestCase):
