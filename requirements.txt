@@ -1,0 +1,34 @@
+# Dependências do Projeto Car Price Prediction
+# Instalação: pip install -r requirements.txt
+
+# Core ML Libraries
+numpy>=1.21.0
+pandas>=1.3.0
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Logging e Utilities
+python-dateutil>=2.8.0
+
+# Testes
+pytest>=7.0.0
+pytest-cov>=3.0.0
+
+# Linting e Code Quality
+flake8>=4.0.0
+black>=22.0.0
+pylint>=2.12.0
+
+# Notebooks (opcional)
+jupyter>=1.0.0
+notebook>=6.4.0
+ipykernel>=6.0.0
+
+# Visualização (opcional)
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Build e Distribuição
+setuptools>=60.0.0
+wheel>=0.37.0
+twine>=3.7.0
