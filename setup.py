@@ -15,7 +15,7 @@ long_description = (this_directory / "README.md").read_text(encoding='utf-8')
 
 setup(
     name="car-price-prediction",
-    version="1.0.0",
+    version="1.0.1",
     author="FIAP ML Team",
     author_email="ml-team@fiap.com",
     description="Biblioteca interna de ML para predição de preços de carros",
