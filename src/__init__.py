@@ -4,10 +4,10 @@ Car Price Prediction Library
 Uma biblioteca interna de Machine Learning para predição de preços de carros.
 Demonstra as melhores práticas de desenvolvimento de bibliotecas ML internas.
 
-Versão: 1.0.0
+Versão: 1.0.2
 """
 
-__version__ = "1.0.0"
+__version__ = "1.0.2"
 __author__ = "FIAP ML Team"
 
 from .data_ingestion import DataIngestion
